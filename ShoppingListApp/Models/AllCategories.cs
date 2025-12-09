@@ -125,8 +125,9 @@ namespace ShoppingListApp.Models
                 }
                 else
                 {
-                    int index = cat.Products.TakeWhile(x => !x.Bought).Count();
-                    cat.Products.Insert(index, p);
+                    var sorted = cat.Products.Where(x => !x.Bought).Append(p).OrderBy(x => x.Name).ToList();
+                    int newIndex = sorted.IndexOf(p);
+                    cat.Products.Insert(newIndex, p);
                 }
             }
             finally
