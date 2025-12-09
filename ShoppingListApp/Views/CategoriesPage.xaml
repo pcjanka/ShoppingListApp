@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ShoppingListApp.Views"
+             xmlns:models="clr-namespace:ShoppingListApp.Models"
+             x:Class="ShoppingListApp.Views.CategoriesPage"
+             x:DataType="models:AllCategories"
+             Title="Shopping List">
+
+    <VerticalStackLayout Padding="10" Spacing="8">
+        <Button Text="Add Category" Clicked="AddCategory_Clicked"/>
+        <Button Text="Add Product" Clicked="AddProduct_Clicked"/>
+        <Button Text="Filter by Store" Clicked="OpenStoreFilter_Clicked"/>
+        <CollectionView ItemsSource="{Binding Categories}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <views:CategoryView />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

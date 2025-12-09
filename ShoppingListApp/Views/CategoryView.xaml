@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ShoppingListApp.Views"
+             x:Class="ShoppingListApp.Views.CategoryView">
+
+    <VerticalStackLayout>
+        <Button Text="{Binding Name}" Clicked="Expand_Clicked" />
+        <CollectionView ItemsSource="{Binding Products}" IsVisible="{Binding Expanded}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <views:ProductView />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentView>
